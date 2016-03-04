@@ -1,0 +1,76 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local("Fira Sans"), url("/fonts/fira-sans/FiraSans-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: normal;
+  src: local("Fira Sans"), url("/fonts/fira-sans/FiraSans-Italic.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: bold;
+  src: local("Proxima Nova"), url("/fonts/proxima-nova/ProximaNova-Bold.otf") format("opentype"); }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Deshabilitar el focus */
+*:focus {
+  outline: none;
+}
+
+body, html {
+  font-family: "Fira Sans";
+  font-weight: bold;
+  color: white;
+  background-color: #202020;
+  height: 100%;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: "Proxima Nova"; }
+
+a, a:visited, a:active, a:hover {
+  color: inherit;
+  font-style: none;
+  text-decoration: none;
+}
+
+hr {
+  background-color: #D2D2D3;
+  border: none;
+  height: 3px;
+}
+
+footer {
+  width: 500px;
+  margin: 0 auto 0 auto;
+  ul, .unordered-list {
+    width: 100%;
+    display:block;
+    margin: 0 auto 0 auto;
+    li {
+      list-style: none;
+      padding: 5px;
+      margin-left: 5px;
+      float: left;
+    }
+  }
+
+  ol {
+    @extend .unordered-list;
+    display: none;
+    height: 0px;
+    .blue { color: $playable_tile; }
+    .yellow { color: $playing_tile_dark; }
+    .red { color: $selectable_tile; }
+    .purple { color: $purple_tile; }
+    .green { color: $green_tile; }
+  }
+}
