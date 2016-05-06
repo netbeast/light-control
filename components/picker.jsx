@@ -14,7 +14,6 @@ export default class Picker extends React.Component {
   }
 
   handleChangeComplete (color) {
-    console.log(color)
     this.setState({ color: color.hex })
     this.sendData({ power: this.state.power, color: color.hex })
   }
@@ -32,9 +31,9 @@ export default class Picker extends React.Component {
     return (
       <div>
         <ColorPicker color={ this.state.color } type='material' onChangeComplete={ this.handleChangeComplete } />
+        <ColorPicker color={ this.state.color } type='slider' onChangeComplete={ this.handleChangeComplete } />
         <button onClick={ this.handleClick.bind(this, true) }>On</button>
         <button onClick={ this.handleClick.bind(this, false) }>Off</button>
-        <ColorPicker color={ this.state.color } type='slider' onChangeComplete={ this.handleChangeComplete } />
       </div>
     )
   }
