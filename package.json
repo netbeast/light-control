@@ -20,6 +20,7 @@
   "bugs": {
     "url": "https://github.com/netbeast/light-control/issues"
   },
+  "logo": "logo.png",
   "homepage": "https://github.com/netbeast/light-control#readme",
   "dependencies": {
     "bluebird": "^3.2.2",
