@@ -1,7 +1,14 @@
 import React from 'react'
+import mqtt from 'mqtt'
 
 import ColorPicker from 'react-color'
 import netbeast from 'netbeast'
+
+var client = mqtt.connect('mqtt://test.mosca.io')
+
+client.on('connect', function () {
+  client.subscribe('notifications')
+})
 
 export default class Picker extends React.Component {
   constructor () {
@@ -16,11 +23,13 @@ export default class Picker extends React.Component {
   handleChangeComplete (color) {
     this.setState({ color: color.hex })
     this.sendData({ power: this.state.power, color: color.hex })
+    client.publish('notifications', 'Color changed to ' + color.hex)
   }
 
   handleClick (power) {
     this.setState({ power: power })
     this.sendData({ power: power, color: this.state.color })
+    client.publish('notifications', 'Power is ' + power)
   }
 
   sendData (status) {
@@ -28,6 +37,8 @@ export default class Picker extends React.Component {
   }
 
   render () {
+    console.log('done')
+
     return (
       <div>
         <ColorPicker color={ this.state.color } type='material' onChangeComplete={ this.handleChangeComplete } />
