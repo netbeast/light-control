@@ -77,14 +77,13 @@ var Picker = function (_React$Component) {
     value: function handleChangeComplete(color) {
       this.setState({ color: color.hex });
       this.sendData({ power: this.state.power, color: color.hex });
-      client.publish('notifications', 'Color changed to ' + color.hex);
     }
   }, {
     key: 'handleClick',
     value: function handleClick(power) {
       this.setState({ power: power });
       this.sendData({ power: power, color: this.state.color });
-      client.publish('notifications', 'Power is ' + power);
+      client.publish('notifications', 'Color changed to ' + this.state.color.toUpperCase() + ', and power: ' + power);
     }
   }, {
     key: 'sendData',
